@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Editar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page7">
+  <form *ngFor="let post of posts" id="editar-form6">
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+          <img [src]="post.im_ponto_turistico"/>
+      </div>
+    <ion-item id="editar-input12">
+      <ion-label>
+        Nome 
+      </ion-label>
+      <ion-input type="text" placeholder="{{post.nm_ponto_turistico}}" name="nome" [(ngModel)]="nome"></ion-input>
+    </ion-item>
+    <ion-item id="editar-input11">
+      <ion-label>
+        Latitude 
+      </ion-label>
+      <ion-input type="text" placeholder="{{post.nm_latitude}}" name="latitude" [(ngModel)]="latitude" ></ion-input>
+    </ion-item>
+    <ion-item id="editar-input14">
+      <ion-label>
+        Longitude 
+      </ion-label>
+      <ion-input type="text" placeholder="{{post.nm_longitude}}" name="longitude" [(ngModel)]="longitude"></ion-input>
+    </ion-item>
+    <ion-item id="editar-input15">
+      <ion-label>
+        Horário abertura 
+      </ion-label>
+      <ion-input type="text" placeholder="{{post.hr_abertura}}" name="hrAbertura" [(ngModel)]="hrAbertura"></ion-input>
+    </ion-item>
+    <ion-item id="editar-input16">
+      <ion-label>
+        Horário de encerramento 
+      </ion-label>
+      <ion-input type="text" placeholder="{{post.hr_encerramento}}" name="hrEncerramento" [(ngModel)]="hrEncerramento"></ion-input>
+    </ion-item>
+    <ion-item id="editar-textarea2">
+      <ion-label>
+        Descrição 
+      </ion-label>
+      <ion-textarea placeholder="{{post.ds_ponto_turistico}}" name="descricao" [(ngModel)]="descricao"></ion-textarea>
+    </ion-item>
+  </form>
+  <button id="editar-button6" ion-button color="positive" (click)="updatePonto()"block>
+    Editar
+  </button>
+</ion-content>

@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cadastrar ponto
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6">
+  <form name="cadastrarPonto" id="cadastrarPonto-form5">
+    <button id="cadastrarPonto-button5" ion-button color="light" block icon-right style="text-align:left;">
+      Inserir imagem
+      <ion-icon name="add"></ion-icon>
+    </button>
+    <ion-item id="cadastrarPonto-input4">
+      <ion-label>
+        Nome
+      </ion-label>
+      <ion-input type="text" [formControl]="pontoTuristicoForm.controls['nomePonto']" name="nomePonto" [(ngModel)]="nomePonto" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item id="cadastrarPonto-textarea1">
+      <ion-label>
+        Descrição
+      </ion-label>
+      <ion-textarea [formControl]="pontoTuristicoForm.controls['descPonto']" name="descPonto" [(ngModel)]="descPonto"></ion-textarea>
+    </ion-item>
+    <ion-item id="cadastrarPonto-input7">
+      <ion-label>
+        Latitude
+      </ion-label>
+      <ion-input [formControl]="pontoTuristicoForm.controls['latitudePonto']" type="text" name="latitudePonto" [(ngModel)]="latitudePonto"></ion-input>
+    </ion-item>
+    <ion-item id="cadastrarPonto-input8">
+      <ion-label>
+        Longitude
+      </ion-label>
+      <ion-input type="text" [formControl]="pontoTuristicoForm.controls['longitudePonto']" name="longitudePonto" [(ngModel)]="longitudePonto"></ion-input>
+    </ion-item>
+    <ion-item id="cadastrarPonto-input9">
+      <ion-label>
+        Horário de abertura
+      </ion-label>
+      <ion-input type="text" [formControl]="pontoTuristicoForm.controls['hrAberturaPonto']" name="hrAberturaPonto" [(ngModel)]="hrAberturaPonto" placeholder="00:00"></ion-input>
+    </ion-item>
+    <ion-item id="cadastrarPonto-input10">
+      <ion-label>
+        Horário de encerramento
+      </ion-label>
+      <ion-input type="text" [formControl]="pontoTuristicoForm.controls['hrEncerramentoPonto']" name="hrEncerramentoPonto" [(ngModel)]="hrEncerramentoPonto" placeholder="00:00"></ion-input>
+    </ion-item>
+    <button id="cadastrarPonto-button4" [disabled]="!pontoTuristicoForm.valid"  type="submit" (click)="addPontoTuristico()" ion-button color="positive" block>
+      Cadastrar
+    </button>
+  </form>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Deletar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page8">
+    <ion-list>
+        <ion-item (click)="deletarPonto(post.cd_ponto_turistico)" *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1">
+            <ion-thumbnail item-left>
+              <img [src]="post.im_ponto_turistico"/>
+            </ion-thumbnail>
+            <h2>
+              {{post.nm_ponto_turistico}}
+            </h2>
+            <h3>
+              {{post.ds_ponto_turistico}}
+            </h3>
+          </ion-item>
+    </ion-list>
+</ion-content>

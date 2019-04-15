@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cadastrar
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page9">
+  <form name="cadastroAdm" id="cadastrar-form7">
+    <div class="spacer" style="width:283px;height:89px;" id="cadastrar-spacer3"></div>
+    <ion-list id="cadastrar-list5">
+      <ion-item id="cadastrar-input17">
+        <ion-label>
+          Usuario
+        </ion-label>
+        <ion-input type="text" [formControl]="credentialsForm.controls['usuario']" name="usuario" [(ngModel)]="nome" required></ion-input>
+      </ion-item>
+      <ion-item id="cadastrar-input19">
+        <ion-label>
+          Senha
+        </ion-label>
+        <ion-input type="text" name="senha" [formControl]="credentialsForm.controls['senha']" [(ngModel)]="senha" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button id="cadastrar-button11"  [disabled]="!credentialsForm.valid" (click)="cadastrar()" ion-button color="positive" block>
+      Cadastrar
+    </button>
+  </form>
+</ion-content>
