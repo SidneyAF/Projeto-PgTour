@@ -15,14 +15,12 @@
       <ion-toggle color="positive" checked="false"></ion-toggle>
     </ion-item>
     <ion-item id="configuraEs-range1">
-      <ion-range min="0" max="100" step="1" color="positive" value="50">
-        <ion-label range-left>
-          Distância
-        </ion-label>
+      <ion-range min="1" max="100" step="1" color="positive" value="50">
+        <ion-label range-left>Distância</ion-label>
       </ion-range>
     </ion-item>
   </form>
-  <button id="configuraEs-button2" ion-button color="positive" block>
+  <button id="configuraEs-button2" ion-button color="positive" block (click)="onSaveConfig()">
     Salvar
   </button>
 </ion-content>

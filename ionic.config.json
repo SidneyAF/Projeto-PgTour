@@ -1,5 +1,7 @@
 {
   "name": "pgtour",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

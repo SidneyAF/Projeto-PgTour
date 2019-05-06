@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Visualização da rota</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <agm-map
+          [latitude]="location.lat"
+          [longitude]="location.lng"
+          [zoom]="16">
+          <!-- <agm-marker
+            [latitude]="location.lat"
+            [longitude]="location.lng"></agm-marker> -->
+            <agm-direction [origin]="origin" [destination]="location">
+            </agm-direction>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <button ion-button color="light" block (click)="closeModal()">
+    Fechar
+</button>
+</ion-content>
