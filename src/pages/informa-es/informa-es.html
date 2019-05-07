@@ -36,12 +36,10 @@
         <strong>Horário de encerramento</strong> {{post.hr_encerramento}}
       </ion-label>
     </ion-item>
-    <ion-item id="informacoes-textarea2">
-      <ion-label>
-        {{post.ds_ponto_turistico}}
-      </ion-label>
-      <ion-textarea placeholder=""></ion-textarea>
-    </ion-item>
+    <div padding>
+      <h4>Sobre o local</h4>
+      <p class="tour-desc">{{post.ds_ponto_turistico}}</p>
+    </div>
     </form>
     <button id="informaEs-button14" ion-button color="positive" block (click)="onOpenMap()">
         Visualizar rota
