@@ -11,6 +11,7 @@ import 'rxjs/add/operator/map';
 export class PontosTurSticosPage {
   private url: string="https://pgtour-sidneyaf.c9users.io/";
   posts: any;
+  buscaPonto: string;
 
   constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController) {
     this.http.get(this.url+'/getPontoTuristico').map(res => res.json())
@@ -31,6 +32,32 @@ export class PontosTurSticosPage {
         this.navCtrl.push(InformaEsPage,{
           id:id
         });
+       }, error => {
+        console.log(error);
+      });
+  }
+
+  buscarPonto(){
+    
+    let aux = "%"+this.buscaPonto+"%";
+    let dados={
+      nomePonto:aux
+    }
+    console.log(dados);
+    this.http.post(this.url+'/buscaPontoTuristico',dados).map(res => res.json())
+      .subscribe(data => {
+        this.posts = data;
+        console.log(data);
+       }, error => {
+        console.log(error);
+      });
+  }
+
+  getRank(){
+    this.http.get(this.url+'/getRank').map(res => res.json())
+      .subscribe(data => {
+        this.posts = data;
+        console.log(data);
        }, error => {
         console.log(error);
       });
