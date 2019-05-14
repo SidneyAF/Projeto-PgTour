@@ -39,7 +39,7 @@ export class PontosTurSticosPage {
 
   buscarPonto(){
     
-    let aux = "%"+this.buscaPonto+"%";
+    let aux = '%'+this.buscaPonto+'%';
     let dados={
       nomePonto:aux
     }
