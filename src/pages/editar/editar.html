@@ -8,7 +8,7 @@
 <ion-content padding id="page7">
   <form *ngFor="let post of posts" id="editar-form6">
       <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-          <img [src]="post.im_ponto_turistico"/>
+          <img [src]="imagem" (click)="updateImage()"/>
       </div>
     <ion-item id="editar-input12">
       <ion-label>

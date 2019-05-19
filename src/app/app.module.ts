@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+
 import { MyApp } from './app.component';
 import { ConfiguraEsPage } from '../pages/configura-es/configura-es';
 import { LoginPage } from '../pages/login/login';
@@ -14,10 +15,12 @@ import { CadastrarPage } from '../pages/cadastrar/cadastrar';
 import { EditarUsuarioPage } from '../pages/editar-usuario/editar-usuario';
 import { InformaEsPage } from '../pages/informa-es/informa-es';
 import { SetLocationPage } from '../pages/set-location/set-location';
+
 import { HttpModule } from '@angular/http';
+import { Camera } from '@ionic-native/camera/index';
+import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -41,6 +44,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCoylt5hgKvT9k3yQNXUWpNF3bK84_AFGE',
       libraries: ['geometry']
@@ -66,7 +70,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Camera
   ]
 })
 export class AppModule {}
