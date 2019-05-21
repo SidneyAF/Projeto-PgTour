@@ -12,10 +12,11 @@
       <ion-label>
         Permitir notificações
       </ion-label>
-      <ion-toggle color="positive" checked="false"></ion-toggle>
+      <ion-toggle color="positive" checked="false" name="permission" [(ngModel)]="permission"></ion-toggle>
     </ion-item>
+    <ion-badge>{{distancia}} km</ion-badge>
     <ion-item id="configuraEs-range1">
-      <ion-range min="1" max="100" step="1" color="positive" value="50">
+      <ion-range min="1" max="15" step="1" color="positive" (ionChange)="range()" name="distancia" [(ngModel)]="distancia">
         <ion-label range-left>Distância</ion-label>
       </ion-range>
     </ion-item>
