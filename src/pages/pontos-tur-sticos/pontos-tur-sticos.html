@@ -1,29 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Pontos Turísticos
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding id="page4">
-    <ion-searchbar [(ngModel)]="buscaPonto" (ionChange)="buscarPonto()" name="buscaPonto" id="pontosTurSticos-search1"></ion-searchbar>
-    <button ion-button (click)="getRank()">Mais acessados</button>
-    <button ion-button (click)="getMaisProximos()">Por raio</button>
-    <ion-list>
-        <ion-item *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1">
-            <ion-thumbnail item-left>
-              <img [src]="post.im_ponto_turistico" />
-            </ion-thumbnail>
-            <h2>
-              {{post.nm_ponto_turistico}}
-            </h2>
-            <h3>
-              {{post.ds_ponto_turistico}}
-            </h3>
-            <button (click)="addVisita(post.cd_ponto_turistico)" id="login-button10" ion-button color="light" style="font-weight:300;" >
-                Visualizar
-            </button>
-          </ion-item>
-    </ion-list>
-
-</ion-content>
+    <ion-navbar>
+      <ion-title>
+        Pontos Turísticos
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding id="page4">
+      <ion-searchbar [(ngModel)]="buscaPonto" (ionChange)="buscarPonto()" name="buscaPonto" 
+      id="pontosTurSticos-search1" placeholder="Ex: Praça, Estátua..."></ion-searchbar>
+      <br/>
+      <div class="modal-footer" style="display: flex; justify-content: center;">
+        <button ion-button (click)="getRank()">Mais acessados</button>
+        <button ion-button (click)="getMaisProximos()">Mais próximos</button>
+      </div>
+      <br/>
+      <ion-list>
+        <ion-item *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1" (click)="addVisita(post.cd_ponto_turistico)">
+          <ion-thumbnail item-left>
+            <img [src]="post.im_ponto_turistico"/>
+          </ion-thumbnail>
+          <h2>
+            {{post.nm_ponto_turistico}}
+          </h2>
+          <h3 style="color: grey;">
+            {{post.ds_ponto_turistico}}
+          </h3>
+          <button id="login-button10" ion-button color="light" style="font-weight:300;">Visualizar</button>
+        </ion-item>
+      </ion-list>
+  </ion-content>

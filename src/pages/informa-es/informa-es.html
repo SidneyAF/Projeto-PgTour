@@ -1,42 +1,41 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Informações
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-<ion-content padding id="page11">
-    <form *ngFor="let post of posts" id="informacoes-form6">
-    <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;text-align:center;">
-        <img [src]="post.im_ponto_turistico"/>
-    </div>
-    <br>
-    <ion-item id="informacoes-input12">
-      <ion-label>
-        <strong>Nome</strong> {{post.nm_ponto_turistico}}
-      </ion-label>
-    </ion-item>
-    <ion-item *ngIf = "post.hr_abertura == '00:00:00' && post.hr_encerramento == '00:00:00'" >
-      <ion-label>
-        <strong>Aberto 24hs</strong>
-      </ion-label>
-    </ion-item>
-    <ion-item id="informacoes-input15" *ngIf = "post.hr_abertura != '00:00:00'">
-      <ion-label>
-        <strong>Horário abertura</strong> {{post.hr_abertura}}
-      </ion-label>
-    </ion-item>
-    <ion-item id="informacoes-input16" *ngIf = "post.hr_encerramento != '00:00:00'">
-      <ion-label>
-        <strong>Horário de encerramento</strong> {{post.hr_encerramento}}
-      </ion-label>
-    </ion-item>
-    <div padding>
-      <h4>Sobre o local</h4>
-      <p class="tour-desc">{{post.ds_ponto_turistico}}</p>
-    </div>
-    </form>
-    <button id="informaEs-button14" ion-button color="positive" block (click)="onOpenMap()">
-        Visualizar rota
-    </button>
-</ion-content>
+    <ion-navbar>
+      <ion-title>
+        Informações
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding id="page11">
+      <form *ngFor="let post of posts" id="informacoes-form6">
+      <div style="width:100%;height:100%;margin:0% 0%;line-height:0%;text-align:center;">
+          <img [src]="post.im_ponto_turistico"/>
+      </div>
+      <ion-item id="informacoes-input12">
+        <ion-label>
+          <strong>Nome</strong> {{post.nm_ponto_turistico}}
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf = "post.hr_abertura == '00:00:00' && post.hr_encerramento == '00:00:00'" >
+        <ion-label>
+          <strong>Aberto 24hs</strong>
+        </ion-label>
+      </ion-item>
+      <ion-item id="informacoes-input15" *ngIf = "post.hr_abertura != '00:00:00'">
+        <ion-label>
+          <strong>Horário abertura</strong> {{post.hr_abertura}}
+        </ion-label>
+      </ion-item>
+      <ion-item id="informacoes-input16" *ngIf = "post.hr_encerramento != '00:00:00'">
+        <ion-label>
+          <strong>Horário de encerramento</strong> {{post.hr_encerramento}}
+        </ion-label>
+      </ion-item>
+      <div padding>
+        <h6><strong>Sobre o local</strong></h6>
+        <p class="tour-desc">{{post.ds_ponto_turistico}}</p>
+      </div>
+      </form>
+      <button id="informaEs-button14" ion-button color="positive" block (click)="onOpenMap()">
+          Visualizar rota
+      </button>
+  </ion-content>
