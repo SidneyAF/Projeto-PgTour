@@ -12,13 +12,17 @@ export class PontosTurSticosPage {
   private url: string="https://pgtour-sidneyaf.c9users.io/";
   posts: any;
   buscaPonto: string;
+  auxiliar: string;
+  maisAcessados: string;
+  maisProximos: string;
 
   constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController) {
-
+    this.maisAcessados = "primary"
+    this.maisProximos = "primary"
     let loading = this.loadingCtrl.create({
       content: 'Carregando...'
     });
-  
+
     loading.present();
 
     this.http.get(this.url+'/getPontoTuristico').map(res => res.json())
@@ -48,22 +52,30 @@ export class PontosTurSticosPage {
   }
 
   buscarPonto(){
-    
+    this.auxiliar ="";
+    this.maisProximos = "primary";
+    this.maisAcessados = "primary";
     let aux = '%'+this.buscaPonto+'%';
     let dados={
       nomePonto:aux
     }
-    console.log(dados);
+
     this.http.post(this.url+'/buscaPontoTuristico',dados).map(res => res.json())
       .subscribe(data => {
-        this.posts = data;
-        console.log(data);
+          this.posts = data;
+          if(data.length==0){
+            console.log("Nada");
+            this.auxiliar = "Sem resultados";
+            }
        }, error => {
         console.log(error);
       });
   }
 
   getRank(){
+    this.auxiliar = "";
+    this.maisProximos = "primary";
+    this.maisAcessados = "dark";
     this.http.get(this.url+'/getRank').map(res => res.json())
       .subscribe(data => {
         this.posts = data;
@@ -82,9 +94,14 @@ export class PontosTurSticosPage {
   }
 
   getMaisProximos(){
+    this.maisAcessados = "primary";
+    this.maisProximos = "dark";
+    
     let loading = this.loadingCtrl.create({
       content: 'Carregando...'
     });
+
+    loading.present();
 
     this.http.get(this.url+'/getPontoTuristico').map(res => res.json())
       .subscribe(data => { 
@@ -108,10 +125,16 @@ export class PontosTurSticosPage {
         dataByDistance.sort((a, b) => parseFloat(a.distancia) - parseFloat(b.distancia));
 
         this.posts = dataByDistance;
+        loading.dismiss();
+        if(dataByDistance.length==0){
+          this.auxiliar = "Sem resultados";
+        }
       });
 
     } else {
       this.posts = data;
+      loading.dismiss();
+      console.log(data);
     }
   }, error => {
     console.log(error);
@@ -120,6 +143,24 @@ export class PontosTurSticosPage {
   });
   }
 
-  
+  doRefresh(refresher) {
+    this.maisProximos = "primary";
+    this.maisAcessados = "primary";
+
+    this.http.get(this.url+'/getPontoTuristico').map(res => res.json())
+      .subscribe(data => {
+        this.posts = data;
+        refresher.complete();
+       }, error => {
+        console.log(error);
+        alert('Não foi possível conectar ao servidor.\nVerifique sua conexão!');
+      });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
 }
 

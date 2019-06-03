@@ -4,6 +4,7 @@ import { CadastrarPage } from '../cadastrar/cadastrar';
 import { AdministradorPage } from '../administrador/administrador';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
@@ -14,9 +15,13 @@ export class LoginPage {
   senha: string;
   private url: string="https://pgtour-sidneyaf.c9users.io/";
   posts: any;
+  loginForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController) {
-    
+  constructor(public navCtrl: NavController, public http: Http, public loadingCtrl: LoadingController, private formBuilder: FormBuilder) {
+    this.loginForm = this.formBuilder.group({//Valida o formulário
+      usuario: ['',Validators.required],// Parâmetros de validação 
+      senha: ['',Validators.required]
+    });
   }
 
   goTocadastrar(params){

@@ -9,13 +9,17 @@
       <ion-searchbar [(ngModel)]="buscaPonto" (ionChange)="buscarPonto()" name="buscaPonto" 
       id="pontosTurSticos-search1" placeholder="Ex: Praça, Estátua..."></ion-searchbar>
       <br/>
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
       <div class="modal-footer" style="display: flex; justify-content: center;">
-        <button ion-button (click)="getRank()">Mais acessados</button>
-        <button ion-button (click)="getMaisProximos()">Mais próximos</button>
+        <button ion-button [color]="maisAcessados" (click)="getRank()">Mais acessados</button>
+        <button ion-button [color]="maisProximos" (click)="getMaisProximos()">Mais próximos</button>
       </div>
       <br/>
-      <ion-list>
-        <ion-item *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1" (click)="addVisita(post.cd_ponto_turistico)">
+      {{auxiliar}}
+      <ion-list >
+        <ion-item *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item" (click)="addVisita(post.cd_ponto_turistico)">
           <ion-thumbnail item-left>
             <img [src]="post.im_ponto_turistico"/>
           </ion-thumbnail>
@@ -25,7 +29,6 @@
           <h3 style="color: grey;">
             {{post.ds_ponto_turistico}}
           </h3>
-          <button id="login-button10" ion-button color="light" style="font-weight:300;">Visualizar</button>
         </ion-item>
       </ion-list>
   </ion-content>

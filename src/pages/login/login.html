@@ -12,16 +12,16 @@
       <ion-label>
         Usuario
       </ion-label>
-      <ion-input type="text" name="usuario" [(ngModel)]="usuario" placeholder=""></ion-input>
+      <ion-input type="text" name="usuario" [formControl]="loginForm.controls['usuario']" [(ngModel)]="usuario" placeholder=""></ion-input>
     </ion-item>
     <ion-item id="login-input2">
       <ion-label>
         Senha
       </ion-label>
-      <ion-input type="text" name="senha" [(ngModel)]="senha" placeholder=""></ion-input>
+      <ion-input type="password" name="senha" [formControl]="loginForm.controls['senha']" [(ngModel)]="senha" placeholder=""></ion-input>
     </ion-item>
   </form>
-  <button id="login-button1" ion-button color="positive" block style="font-weight:300;" (click)="logar()">
+  <button id="login-button1" ion-button color="positive" [disabled]="!loginForm.valid" block style="font-weight:300;" (click)="logar()">
     Entrar
   </button>
   <button id="login-button10" ion-button color="light" block style="font-weight:300;" on-click="goTocadastrar()">

@@ -6,30 +6,25 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page5">
-  <!--CADATRAR-->
-  <button id="administrador-button3" ion-button color="light" block icon-right style="text-align:left;" on-click="goToCadastrarPonto()">
-    Adicionar ponto turístico
-    <ion-icon name="add"></ion-icon>
-  </button>
-  <!--DELETAR-->
-  <button id="administrador-button8" ion-button color="light" block icon-right style="text-align:left;" on-click="goToDeletar()">
-    Deletar ponto turístico
-    <ion-icon name="remove"></ion-icon>
-  </button>
-  <br><br>
-  <h3>Editar</h3>
-  <!--EDITAR-->
-  <ion-list>
-      <ion-item (click)="editarPonto(post.cd_ponto_turistico)" *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1">
-          <ion-thumbnail item-left>
-            <img [src]="post.im_ponto_turistico"/>
-          </ion-thumbnail>
-          <h2>
-            {{post.nm_ponto_turistico}}
-          </h2>
-          <h3>
-            {{post.ds_ponto_turistico}}
-          </h3>
-        </ion-item>
-  </ion-list>
+      <!--CADATRAR-->
+      <button id="administrador-button3" ion-button color="light" block icon-right style="text-align:left;" on-click="goToCadastrarPonto()">
+        Adicionar ponto turístico
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <h3>Editar</h3>
+      <!--EDITAR-->
+      <ion-list>
+          <ion-item *ngFor="let post of posts" color="none" id="pontosTurSticos-list-item1">
+              <ion-thumbnail (click)="editarPonto(post.cd_ponto_turistico)" item-left>
+                <img [src]="post.im_ponto_turistico"/>
+              </ion-thumbnail>
+              <h2>
+                {{post.nm_ponto_turistico}}
+              </h2>
+              <h3>
+                {{post.ds_ponto_turistico}}
+              </h3>
+              <button ion-button (click)="deletar(post.cd_ponto_turistico)">Deletar</button>
+          </ion-item>
+      </ion-list>
 </ion-content>
